@@ -1,0 +1,148 @@
+(function () {
+  "use strict";
+
+  (self["webpackChunkangular_calendar"] = self["webpackChunkangular_calendar"] || []).push([["projects_demos_app_demo-modules_customise-date-formats_sources_ts"], {
+    /***/
+    19158: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export */
+
+
+      __webpack_require__.d(__webpack_exports__, {
+        /* harmony export */
+        "sources": function sources() {
+          return (
+            /* binding */
+            _sources
+          );
+        }
+        /* harmony export */
+
+      });
+
+      var _sources = [{
+        filename: 'component.ts',
+        contents: {
+          raw: __webpack_require__(
+          /*! !!raw-loader!./component */
+          98376),
+          highlighted: __webpack_require__(
+          /*! !!raw-loader!highlightjs-loader?lang=typescript!./component */
+          26518)
+        }
+      }, {
+        filename: 'custom-date-formatter.provider.ts',
+        contents: {
+          raw: __webpack_require__(
+          /*! !!raw-loader!./custom-date-formatter.provider */
+          19412),
+          highlighted: __webpack_require__(
+          /*! !!raw-loader!highlightjs-loader?lang=typescript!./custom-date-formatter.provider */
+          54397)
+        }
+      }, {
+        filename: 'template.html',
+        contents: {
+          raw: __webpack_require__(
+          /*! !!raw-loader!./template.html */
+          89926),
+          highlighted: __webpack_require__(
+          /*! !!raw-loader!highlightjs-loader?lang=xml!./template.html */
+          59930)
+        }
+      }, {
+        filename: 'module.ts',
+        contents: {
+          raw: __webpack_require__(
+          /*! !!raw-loader!./module */
+          19004),
+          highlighted: __webpack_require__(
+          /*! !!raw-loader!highlightjs-loader?lang=typescript!./module */
+          29064)
+        }
+      }];
+      /***/
+    },
+
+    /***/
+    26518: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<span class=\"hljs-keyword\">import</span> { Component, ChangeDetectionStrategy } from <span class=\"hljs-string\">'@angular/core'</span>;\n<span class=\"hljs-keyword\">import</span> {\n  CalendarEvent,\n  CalendarDateFormatter,\n  CalendarView,\n} from <span class=\"hljs-string\">'angular-calendar'</span>;\n<span class=\"hljs-keyword\">import</span> { CustomDateFormatter } from <span class=\"hljs-string\">'./custom-date-formatter.provider'</span>;\n\n@Component({\n  selector: <span class=\"hljs-string\">'mwl-demo-component'</span>,\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  templateUrl: <span class=\"hljs-string\">'template.html'</span>,\n  providers: [\n    {\n      provide: CalendarDateFormatter,\n      useClass: CustomDateFormatter,\n    },\n  ],\n})\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">class</span> DemoComponent {\n  view: CalendarView = CalendarView.Month;\n\n  viewDate: <span class=\"hljs-built_in\">Date</span> = <span class=\"hljs-keyword\">new</span> <span class=\"hljs-built_in\">Date</span>();\n\n  events: CalendarEvent[] = [];\n}\n";
+      /***/
+    },
+
+    /***/
+    54397: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<span class=\"hljs-keyword\">import</span> { CalendarDateFormatter, DateFormatterParams } from <span class=\"hljs-string\">'angular-calendar'</span>;\n<span class=\"hljs-keyword\">import</span> { formatDate } from <span class=\"hljs-string\">'@angular/common'</span>;\n<span class=\"hljs-keyword\">import</span> { Injectable } from <span class=\"hljs-string\">'@angular/core'</span>;\n\n@Injectable()\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">class</span> CustomDateFormatter extends CalendarDateFormatter {\n  <span class=\"hljs-comment\">// you can override any of the methods defined in the parent class</span>\n\n  <span class=\"hljs-keyword\">public</span> monthViewColumnHeader({ date, locale }: DateFormatterParams): <span class=\"hljs-built_in\">string</span> {\n    <span class=\"hljs-keyword\">return</span> formatDate(date, <span class=\"hljs-string\">'EEE'</span>, locale);\n  }\n\n  <span class=\"hljs-keyword\">public</span> monthViewTitle({ date, locale }: DateFormatterParams): <span class=\"hljs-built_in\">string</span> {\n    <span class=\"hljs-keyword\">return</span> formatDate(date, <span class=\"hljs-string\">'MMM y'</span>, locale);\n  }\n\n  <span class=\"hljs-keyword\">public</span> weekViewColumnHeader({ date, locale }: DateFormatterParams): <span class=\"hljs-built_in\">string</span> {\n    <span class=\"hljs-keyword\">return</span> formatDate(date, <span class=\"hljs-string\">'EEE'</span>, locale);\n  }\n\n  <span class=\"hljs-keyword\">public</span> dayViewHour({ date, locale }: DateFormatterParams): <span class=\"hljs-built_in\">string</span> {\n    <span class=\"hljs-keyword\">return</span> formatDate(date, <span class=\"hljs-string\">'HH:mm'</span>, locale);\n  }\n}\n";
+      /***/
+    },
+
+    /***/
+    29064: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<span class=\"hljs-keyword\">import</span> { NgModule } from <span class=\"hljs-string\">'@angular/core'</span>;\n<span class=\"hljs-keyword\">import</span> { CommonModule } from <span class=\"hljs-string\">'@angular/common'</span>;\n<span class=\"hljs-keyword\">import</span> { RouterModule } from <span class=\"hljs-string\">'@angular/router'</span>;\n<span class=\"hljs-keyword\">import</span> { CalendarModule, DateAdapter } from <span class=\"hljs-string\">'angular-calendar'</span>;\n<span class=\"hljs-keyword\">import</span> { DemoUtilsModule } from <span class=\"hljs-string\">'../demo-utils/module'</span>;\n<span class=\"hljs-keyword\">import</span> { DemoComponent } from <span class=\"hljs-string\">'./component'</span>;\n<span class=\"hljs-keyword\">import</span> { adapterFactory } from <span class=\"hljs-string\">'angular-calendar/date-adapters/date-fns'</span>;\n\n@NgModule({\n  imports: [\n    CommonModule,\n    CalendarModule.forRoot({\n      provide: DateAdapter,\n      useFactory: adapterFactory,\n    }),\n    DemoUtilsModule,\n    RouterModule.forChild([{ path: <span class=\"hljs-string\">''</span>, component: DemoComponent }]),\n  ],\n  declarations: [DemoComponent],\n  exports: [DemoComponent],\n})\n<span class=\"hljs-keyword\">export</span> <span class=\"hljs-keyword\">class</span> DemoModule {}\n";
+      /***/
+    },
+
+    /***/
+    59930: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<span class=\"hljs-tag\">&lt;<span class=\"hljs-title\">mwl-demo-utils-calendar-header</span> [(<span class=\"hljs-attribute\">view</span>)]=<span class=\"hljs-value\">\"view\"</span> [(<span class=\"hljs-attribute\">viewDate</span>)]=<span class=\"hljs-value\">\"viewDate\"</span>&gt;</span>\n<span class=\"hljs-tag\">&lt;/<span class=\"hljs-title\">mwl-demo-utils-calendar-header</span>&gt;</span>\n\n<span class=\"hljs-tag\">&lt;<span class=\"hljs-title\">div</span> [<span class=\"hljs-attribute\">ngSwitch</span>]=<span class=\"hljs-value\">\"view\"</span>&gt;</span>\n  <span class=\"hljs-tag\">&lt;<span class=\"hljs-title\">mwl-calendar-month-view</span>\n    *<span class=\"hljs-attribute\">ngSwitchCase</span>=<span class=\"hljs-value\">\"'month'\"</span>\n    [<span class=\"hljs-attribute\">viewDate</span>]=<span class=\"hljs-value\">\"viewDate\"</span>\n    [<span class=\"hljs-attribute\">events</span>]=<span class=\"hljs-value\">\"events\"</span>\n  &gt;</span>\n  <span class=\"hljs-tag\">&lt;/<span class=\"hljs-title\">mwl-calendar-month-view</span>&gt;</span>\n  <span class=\"hljs-tag\">&lt;<span class=\"hljs-title\">mwl-calendar-week-view</span>\n    *<span class=\"hljs-attribute\">ngSwitchCase</span>=<span class=\"hljs-value\">\"'week'\"</span>\n    [<span class=\"hljs-attribute\">viewDate</span>]=<span class=\"hljs-value\">\"viewDate\"</span>\n    [<span class=\"hljs-attribute\">events</span>]=<span class=\"hljs-value\">\"events\"</span>\n  &gt;</span>\n  <span class=\"hljs-tag\">&lt;/<span class=\"hljs-title\">mwl-calendar-week-view</span>&gt;</span>\n  <span class=\"hljs-tag\">&lt;<span class=\"hljs-title\">mwl-calendar-day-view</span>\n    *<span class=\"hljs-attribute\">ngSwitchCase</span>=<span class=\"hljs-value\">\"'day'\"</span>\n    [<span class=\"hljs-attribute\">viewDate</span>]=<span class=\"hljs-value\">\"viewDate\"</span>\n    [<span class=\"hljs-attribute\">events</span>]=<span class=\"hljs-value\">\"events\"</span>\n  &gt;</span>\n  <span class=\"hljs-tag\">&lt;/<span class=\"hljs-title\">mwl-calendar-day-view</span>&gt;</span>\n<span class=\"hljs-tag\">&lt;/<span class=\"hljs-title\">div</span>&gt;</span>\n";
+      /***/
+    },
+
+    /***/
+    98376: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "import { Component, ChangeDetectionStrategy } from '@angular/core';\nimport {\n  CalendarEvent,\n  CalendarDateFormatter,\n  CalendarView,\n} from 'angular-calendar';\nimport { CustomDateFormatter } from './custom-date-formatter.provider';\n\n@Component({\n  selector: 'mwl-demo-component',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n  templateUrl: 'template.html',\n  providers: [\n    {\n      provide: CalendarDateFormatter,\n      useClass: CustomDateFormatter,\n    },\n  ],\n})\nexport class DemoComponent {\n  view: CalendarView = CalendarView.Month;\n\n  viewDate: Date = new Date();\n\n  events: CalendarEvent[] = [];\n}\n";
+      /***/
+    },
+
+    /***/
+    19412: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "import { CalendarDateFormatter, DateFormatterParams } from 'angular-calendar';\nimport { formatDate } from '@angular/common';\nimport { Injectable } from '@angular/core';\n\n@Injectable()\nexport class CustomDateFormatter extends CalendarDateFormatter {\n  // you can override any of the methods defined in the parent class\n\n  public monthViewColumnHeader({ date, locale }: DateFormatterParams): string {\n    return formatDate(date, 'EEE', locale);\n  }\n\n  public monthViewTitle({ date, locale }: DateFormatterParams): string {\n    return formatDate(date, 'MMM y', locale);\n  }\n\n  public weekViewColumnHeader({ date, locale }: DateFormatterParams): string {\n    return formatDate(date, 'EEE', locale);\n  }\n\n  public dayViewHour({ date, locale }: DateFormatterParams): string {\n    return formatDate(date, 'HH:mm', locale);\n  }\n}\n";
+      /***/
+    },
+
+    /***/
+    19004: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { RouterModule } from '@angular/router';\nimport { CalendarModule, DateAdapter } from 'angular-calendar';\nimport { DemoUtilsModule } from '../demo-utils/module';\nimport { DemoComponent } from './component';\nimport { adapterFactory } from 'angular-calendar/date-adapters/date-fns';\n\n@NgModule({\n  imports: [\n    CommonModule,\n    CalendarModule.forRoot({\n      provide: DateAdapter,\n      useFactory: adapterFactory,\n    }),\n    DemoUtilsModule,\n    RouterModule.forChild([{ path: '', component: DemoComponent }]),\n  ],\n  declarations: [DemoComponent],\n  exports: [DemoComponent],\n})\nexport class DemoModule {}\n";
+      /***/
+    },
+
+    /***/
+    89926: function _(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<mwl-demo-utils-calendar-header [(view)]=\"view\" [(viewDate)]=\"viewDate\">\n</mwl-demo-utils-calendar-header>\n\n<div [ngSwitch]=\"view\">\n  <mwl-calendar-month-view\n    *ngSwitchCase=\"'month'\"\n    [viewDate]=\"viewDate\"\n    [events]=\"events\"\n  >\n  </mwl-calendar-month-view>\n  <mwl-calendar-week-view\n    *ngSwitchCase=\"'week'\"\n    [viewDate]=\"viewDate\"\n    [events]=\"events\"\n  >\n  </mwl-calendar-week-view>\n  <mwl-calendar-day-view\n    *ngSwitchCase=\"'day'\"\n    [viewDate]=\"viewDate\"\n    [events]=\"events\"\n  >\n  </mwl-calendar-day-view>\n</div>\n";
+      /***/
+    }
+  }]);
+})();
+//# sourceMappingURL=projects_demos_app_demo-modules_customise-date-formats_sources_ts-es5.js.map
