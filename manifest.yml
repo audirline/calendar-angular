@@ -1,0 +1,7 @@
+applications:
+- name: calendar-angular
+  memory: 1G 
+  path: dist/demos
+  random-route: false
+  buildpacks:
+  - staticfile_buildpack
